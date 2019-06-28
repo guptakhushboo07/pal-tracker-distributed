@@ -1,13 +1,14 @@
 applications:
-- name: tracker-timesheets-khushboo
-  path: ./applications/timesheets-server/build/libs/timesheets-server.jar
-  routes:
-  - route: pal-tracker-distributed-timesheet-khusbboo.apps.dev.pcf-aws.com
-
-  memory: 1G
-  instances: 1
-  env:
-    REGISTRATION_SERVER_ENDPOINT: http://FILL_ME_IN
-    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
-  services:
-  - tracker-timesheets-database
+  - name: tracker-timesheets-khushboo
+    path: ./applications/timesheets-server/build/libs/timesheets-server.jar
+    routes:
+      - route: timesheets-pal-khushboo-pcf.cfapps.io
+    memory: 500M
+    disk_quota: 500M
+    instances: 1
+    env:
+      REGISTRATION_SERVER_ENDPOINT: http://registration-pal-khushboo-pcf.cfapps.io
+      JAVA_OPTS: '-XX:MaxMetaspaceSize=80780K -Xss512k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+    services:
+      - tracker-registration-database
