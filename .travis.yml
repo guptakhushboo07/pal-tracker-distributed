@@ -23,6 +23,7 @@ jobs:
         - ./gradlew testMigrate
       script:
         - APPLICATION=allocations
+        - chmod +x gradlew
         - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
@@ -43,6 +44,7 @@ jobs:
       install: skip
       before_script:
         - mysql -uroot < databases/create_databases.sql
+        - chmod +x gradlew
         - ./gradlew testMigrate
       script:
         - APPLICATION=backlog
@@ -65,6 +67,7 @@ jobs:
         - ./gradlew testMigrate
       script:
         - APPLICATION=registration
+        - chmod +x gradlew
         - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
@@ -81,9 +84,11 @@ jobs:
       install: skip
       before_script:
         - mysql -uroot < databases/create_databases.sql
+        - chmod +x gradlew
         - ./gradlew testMigrate
       script:
         - APPLICATION=timesheets
+        - chmod +x gradlew
         - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
@@ -144,6 +149,9 @@ jobs:
         - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         - sudo apt-get update
         - sudo apt-get install cf-cli
+        - chmod +x gradlew
       script:
         - cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE
+        - chmod +x gradlew
         - ./gradlew cfMigrate
+
