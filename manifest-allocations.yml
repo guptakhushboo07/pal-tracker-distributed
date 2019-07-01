@@ -2,12 +2,11 @@ applications:
   - name: tracker-allocations-khushboo
     path: ./applications/allocations-server/build/libs/allocations-server.jar
     routes:
-      - route: allocations-pal-khushboo-pcf.cfapps.io
+      - route: allocations-pal-khushboo-pcf.apps.dev.pcf-aws.com
     memory: 500M
     disk_quota: 500M
     instances: 1
     env:
-      REGISTRATION_SERVER_ENDPOINT: http://registration-pal-khushboo-pcf.cfapps.io
       JAVA_OPTS: '-XX:MaxMetaspaceSize=150M -Xss512k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
       GRANT_TYPE: client_credentials
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
