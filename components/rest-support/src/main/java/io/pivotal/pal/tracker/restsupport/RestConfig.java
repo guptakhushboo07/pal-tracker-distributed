@@ -11,10 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestConfig {
 
-    @Bean
-    public RestOperations restOperations() {
-        return new RestTemplate();
-    }
+
 
     @Bean
     public ObjectMapper objectMapper() {
