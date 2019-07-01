@@ -15,8 +15,7 @@ import java.util.TimeZone;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-@ComponentScan({"io.pivotal.pal.tracker.backlog",
-        "io.pivotal.pal.tracker.restsupport"})
+@ComponentScan({"io.pivotal.pal.tracker.backlog", "io.pivotal.pal.tracker.restsupport"})
 public class App {
 
     public static void main(String[] args) {
