@@ -8,7 +8,7 @@ applications:
     instances: 1
     env:
       REGISTRATION_SERVER_ENDPOINT: http://registration-pal-khushboo-pcf.cfapps.io
-      JAVA_OPTS: '-XX:MaxMetaspaceSize=80780K -Xss512k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
+      JAVA_OPTS: '-XX:MaxMetaspaceSize=150M -Xss512k -Xmx200M -XX:ReservedCodeCacheSize=16M -XX:MaxDirectMemorySize=16M'
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     services:
       - tracker-registration-database
